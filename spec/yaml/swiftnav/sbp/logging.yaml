@@ -34,6 +34,7 @@ definitions:
     id: 0x0012
     short_desc: Tweet
     desc: All the news fit to tweet.
+    public: False
     fields:
       - tweet:
           type: string
