@@ -236,6 +236,7 @@ definitions:
                       - 3: Float RTK
                       - 4: Fixed RTK
 
+
  - MSG_POS_LLH:
     id: 0x020A
     short_desc: Geodetic Position
@@ -287,6 +288,85 @@ definitions:
                       - 1: Solution came from RAIM repair
               - 3-6:
                   desc: Reserved
+              - 0-2:
+                  desc: Fix mode
+                  values:
+                      - 0: Invalid
+                      - 1: Single Point Position (SPP)
+                      - 2: Differential GNSS (DGNSS)
+                      - 3: Float RTK
+                      - 4: Fixed RTK
+
+
+ - MSG_POS_LLH_COV:
+    id: 0x0211
+    short_desc: Geodetic Position
+    desc: |
+      This position solution message reports the absolute geodetic
+      coordinates and the status (single point vs pseudo-absolute RTK)
+      of the position solution as well as the upper triangle of the 3x3
+      covariance matrix.  The position information and Fix Mode flags should
+      follow the MSG_POS_LLH message.  Since the covariance matrix is computed
+      in the local-level North, East, Down frame, the covariance terms follow
+      with that convention. Thus, covariances are reported against the "downward"
+      measurement and care should be taken with the sign convention.
+    fields:
+        - tow:
+            type: u32
+            units: ms
+            desc: GPS Time of Week
+        - lat:
+            type: double
+            units: deg
+            desc: Latitude
+        - lon:
+            type: double
+            units: deg
+            desc: Longitude
+        - height:
+            type: double
+            units: m
+            desc: Height above WGS84 ellipsoid
+        - cov_n_n:
+            type: float
+            units: m^2
+            desc: Estimated variance of northing
+        - cov_n_e:
+            type: float
+            units: m^2
+            desc: Covariance of northing and easting
+        - cov_n_d:
+            type: float
+            units: m^2
+            desc: Covariance of northing and downward measurement
+        - cov_e_e:
+            type: float
+            units: m^2
+            desc: Estimated variance of easting
+        - cov_e_d:
+            type: float
+            units: m^2
+            desc: Covariance of easting and downward measurement
+        - cov_d_d:
+            type: float
+            units: m^2
+            desc: Estimated variance of downward measurement
+        - n_sats:
+            type: u8
+            desc: Number of satellites used in solution.
+        - flags:
+            type: u8
+            desc: Status flags
+            fields:
+              - 5-7:
+                  desc: Reserved
+              - 3-4:
+                  desc: INS status
+                  values:
+                      - 0: Not present
+                      - 1: Error (see INS status msg)
+                      - 2: Warning (see INS status msg)
+                      - 3: Valid
               - 0-2:
                   desc: Fix mode
                   values:
