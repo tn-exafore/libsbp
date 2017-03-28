@@ -660,6 +660,81 @@ definitions:
                         - 1: Measured Doppler derived
                         - 2: Computed Doppler derived
 
+ - MSG_VEL_BODY:
+    id: 0x0212
+    short_desc: Velocity in Body Frame Coordinates
+    desc: |
+      This message reports the velocity in the vehicle body frame. By convention,
+      the x-axis should point out the nose of the vehicle and represent the forward
+      direction, while as the y-axis should point out the right hand side of the vehicle.
+      Since this is a right handed system, z should point out the bottom of the vehicle.  
+      The full GPS time is given by the preceding MSG_GPS_TIME with the 
+      matching time-of-week (tow).  This message is similar to the MSG_VEL_NED, 
+      but it includes the upper triangular portion of the 3x3 covariance matrix.
+    fields:
+          - tow:
+              type: u32
+              units: ms
+              desc: GPS Time of Week
+          - x:
+              type: s32
+              units: mm/s
+              desc: Velocity in x direction
+          - y:
+              type: s32
+              units: mm/s
+              desc: Velocity in y direction
+          - z:
+              type: s32
+              units: mm/s
+              desc: Velocity in z direction
+          - cov_x_x:
+              type: float
+              units: m^2
+              desc: Estimated variance of x
+          - cov_x_y:
+              type: float
+              units: m^2
+              desc: Covariance of x and y
+          - cov_x_z:
+              type: float
+              units: m^2
+              desc: Covariance of x and z
+          - cov_y_y:
+              type: float
+              units: m^2
+              desc: Estimated variance of y
+          - cov_y_z:
+              type: float
+              units: m^2
+              desc: Covariance of y and z
+          - cov_z_z:
+              type: float
+              units: m^2
+              desc: Estimated variance of z
+          - n_sats:
+              type: u8
+              desc: Number of satellites used in solution
+          - flags:
+              type: u8
+              desc: Status flags
+              fields:
+                - 5-7:
+                    desc: Reserved
+                - 3-4:
+                    desc: INS status
+                    values:
+                        - 0: Not present
+                        - 1: Error (see INS status msg)
+                        - 2: Warning (see INS status msg)
+                        - 3: Valid
+                - 0-2:
+                    desc: Velocity mode
+                    values:
+                        - 0: Invalid
+                        - 1: Measured Doppler derived
+                        - 2: Computed Doppler derived
+
  - MSG_BASELINE_HEADING:
     id: 0x020F
     short_desc: Heading relative to True North
