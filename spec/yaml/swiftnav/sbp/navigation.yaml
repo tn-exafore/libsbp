@@ -586,6 +586,80 @@ definitions:
                         - 1: Measured Doppler derived
                         - 2: Computed Doppler derived
 
+ - MSG_VEL_NED_COV:
+    id: 0x0212
+    short_desc: Velocity in NED
+    desc: |
+      This message reports the velocity in local North East Down (NED)
+      coordinates. The NED coordinate system is defined as the local WGS84
+      tangent plane centered at the current position. The full GPS time is
+      given by the preceding MSG_GPS_TIME with the matching time-of-week (tow).
+      This message is similar to the MSG_VEL_NED, but it includes the upper triangular
+      portion of the 3x3 covariance matrix.
+    fields:
+          - tow:
+              type: u32
+              units: ms
+              desc: GPS Time of Week
+          - n:
+              type: s32
+              units: mm/s
+              desc: Velocity North coordinate
+          - e:
+              type: s32
+              units: mm/s
+              desc: Velocity East coordinate
+          - d:
+              type: s32
+              units: mm/s
+              desc: Velocity Down coordinate
+          - cov_n_n:
+              type: float
+              units: m^2
+              desc: Estimated variance of northward measurement
+          - cov_n_e:
+              type: float
+              units: m^2
+              desc: Covariance of northward and eastward measurement
+          - cov_n_d:
+              type: float
+              units: m^2
+              desc: Covariance of northward and downward measurement
+          - cov_e_e:
+              type: float
+              units: m^2
+              desc: Estimated variance of eastward measurement
+          - cov_e_d:
+              type: float
+              units: m^2
+              desc: Covariance of eastward and downward measurement
+          - cov_d_d:
+              type: float
+              units: m^2
+              desc: Estimated variance of downward measurement
+          - n_sats:
+              type: u8
+              desc: Number of satellites used in solution
+          - flags:
+              type: u8
+              desc: Status flags
+              fields:
+                - 5-7:
+                    desc: Reserved
+                - 3-4:
+                    desc: INS status
+                    values:
+                        - 0: Not present
+                        - 1: Error (see INS status msg)
+                        - 2: Warning (see INS status msg)
+                        - 3: Valid
+                - 0-2:
+                    desc: Velocity mode
+                    values:
+                        - 0: Invalid
+                        - 1: Measured Doppler derived
+                        - 2: Computed Doppler derived
+
  - MSG_BASELINE_HEADING:
     id: 0x020F
     short_desc: Heading relative to True North
