@@ -101,20 +101,61 @@ definitions:
               type: u8
               desc: Status flags
               fields:
-                - 4-7:
+                - 2-7:
                     desc: Reserved
-                - 3-4:
+                - 0-1:
                     desc: INS status
                     values:
                         - 0: Not present
                         - 1: Error (see INS status msg)
                         - 2: Warning (see INS status msg)
                         - 3: Valid
-                - 0-2:
-                    desc: Fix mode
+
+ - MSG_ORIENT_EULER:
+    id: 0x0221
+    short_desc:  Euler angles
+    desc: |
+      This message reports the roll, pitch, and yaw angle of the vehicle body axis.
+      The rotations should applied extrinsically in the order roll, pitch, and then yaw.
+    fields:
+          - tow:
+              type: u32
+              units: ms
+              desc: GPS Time of Week
+          - roll:
+              type: s16
+              units: milliradians 
+              desc: rotation about the forward axis of the vehicle
+          - pitch:
+              type: s16
+              units: milliradians
+              desc: rotation about the rightward axis of the vehicle
+          - yaw:
+              type: s16
+              units: milliradians
+              desc: rotation about the downward axis of the vehicle
+          - var_roll:
+              type: float
+              units: radians^2
+              desc: Variance of roll
+          - var_pitch:
+              type: float
+              units: radians^2
+              desc: Variance of pitch
+          - var_yaw:
+              type: float
+              units: radians^2
+              desc: Variance of yaw
+          - flags:
+              type: u8
+              desc: Status flags
+              fields:
+                - 2-7:
+                    desc: Reserved
+                - 0-1:
+                    desc: INS status
                     values:
-                        - 0: Invalid
-                        - 1: Reserved
-                        - 2: Differential GNSS (DGNSS)
-                        - 3: Float RTK
-                        - 4: Fixed RTK
+                        - 0: Not present
+                        - 1: Error (see INS status msg)
+                        - 2: Warning (see INS status msg)
+                        - 3: Valid
