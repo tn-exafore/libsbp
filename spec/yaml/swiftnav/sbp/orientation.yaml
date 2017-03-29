@@ -59,7 +59,7 @@ definitions:
     short_desc: Quaternion 4 component vector 
     desc: |
       This message reports the quaternion vector describing the vehicle orientation
-      with respect to a local level NED frame.  
+      with respect to a local-level NED frame.  
     fields:
           - tow:
               type: u32
@@ -115,8 +115,10 @@ definitions:
     id: 0x0221
     short_desc:  Euler angles
     desc: |
-      This message reports the roll, pitch, and yaw angle of the vehicle body frame.
-      The rotations should applied extrinsically in the order roll, pitch, and then yaw.
+      This message reports the yaw, pitch, and roll angles of the vehicle body frame.
+      The rotations should applied intrinsically in the order yaw, pitch, and roll 
+      in order to rotate the from a frame aligned with hte local-level NED frame 
+      to the vehicle body frame.
     fields:
           - tow:
               type: u32
