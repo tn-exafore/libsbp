@@ -115,7 +115,7 @@ definitions:
     id: 0x0221
     short_desc:  Euler angles
     desc: |
-      This message reports the roll, pitch, and yaw angle of the vehicle body axis.
+      This message reports the roll, pitch, and yaw angle of the vehicle body frame.
       The rotations should applied extrinsically in the order roll, pitch, and then yaw.
     fields:
           - tow:
@@ -146,6 +146,46 @@ definitions:
               type: float
               units: radians^2
               desc: Variance of yaw
+          - flags:
+              type: u8
+              desc: Status flags
+              fields:
+                - 2-7:
+                    desc: Reserved
+                - 0-1:
+                    desc: INS status
+                    values:
+                        - 0: Not present
+                        - 1: Error (see INS status msg)
+                        - 2: Warning (see INS status msg)
+                        - 3: Valid
+ - MSG_ANGULAR_RATE:
+    id: 0x0222
+    short_desc: Vehicle Body Axis angular rates
+    desc: |
+      This message reports the orientation rates in the vehicle body frame. 
+      The values represent the measurements a strapped down gyroscope would 
+      make and are not equivalent to the time derivative of the Euler angles.
+      By convention, the vehicle x-axis is expected to be aligned with the forward
+      direction, while the vehicle y-axis is expected to be aligned with the right
+      direction, and the vehicle z-axis should be aligned with the down direction.
+    fields:
+          - tow:
+              type: u32
+              units: ms
+              desc: GPS Time of Week
+          - x:
+              type: s16
+              units: milliradians/s
+              desc: angular rate about x axis 
+          - y:
+              type: s16
+              units: milliradians/s
+              desc: angular rate about y axis 
+          - z:
+              type: s16
+              units: milliradians/s
+              desc: angular rate about z axis 
           - flags:
               type: u8
               desc: Status flags
