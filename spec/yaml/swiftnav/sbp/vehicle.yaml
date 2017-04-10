@@ -15,7 +15,7 @@ public: True
 definitions:
 
  - MSG_FWD_VEL:
-    id: 0x0900
+    id: 0x0902
     short_desc: Vehicle forward (x-axis) velocity
     desc: |
       Message representing the forward component of vehicle velocity, which
