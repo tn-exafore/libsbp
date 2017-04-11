@@ -36,11 +36,13 @@ library
                      , SwiftNav.SBP.Navigation
                      , SwiftNav.SBP.Ndb
                      , SwiftNav.SBP.Observation
+                     , SwiftNav.SBP.Orientation
                      , SwiftNav.SBP.Piksi
                      , SwiftNav.SBP.Settings
                      , SwiftNav.SBP.System
                      , SwiftNav.SBP.Tracking
                      , SwiftNav.SBP.User
+                     , SwiftNav.SBP.Vehicle
                      , SwiftNav.SBP.Encoding
                      , SwiftNav.SBP.Types
   other-modules:       SwiftNav.SBP.TH

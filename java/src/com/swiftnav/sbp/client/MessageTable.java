@@ -24,11 +24,13 @@ import com.swiftnav.sbp.navigation.MsgUtcTime;
 import com.swiftnav.sbp.navigation.MsgDops;
 import com.swiftnav.sbp.navigation.MsgPosECEF;
 import com.swiftnav.sbp.navigation.MsgPosLLH;
+import com.swiftnav.sbp.navigation.MsgPosLLHCov;
 import com.swiftnav.sbp.navigation.MsgBaselineECEF;
 import com.swiftnav.sbp.navigation.MsgBaselineNED;
 import com.swiftnav.sbp.navigation.MsgVelECEF;
 import com.swiftnav.sbp.navigation.MsgVelNED;
-import com.swiftnav.sbp.navigation.MsgBaselineHeading;
+import com.swiftnav.sbp.navigation.MsgVelNEDCov;
+import com.swiftnav.sbp.navigation.MsgVelBody;
 import com.swiftnav.sbp.navigation.MsgAgeCorrections;
 import com.swiftnav.sbp.navigation.MsgGPSTimeDepA;
 import com.swiftnav.sbp.navigation.MsgDopsDepA;
@@ -67,6 +69,7 @@ import com.swiftnav.sbp.flash.MsgStmFlashUnlockSector;
 import com.swiftnav.sbp.flash.MsgStmUniqueIdReq;
 import com.swiftnav.sbp.flash.MsgStmUniqueIdResp;
 import com.swiftnav.sbp.flash.MsgM25FlashWriteStatus;
+import com.swiftnav.sbp.vehicle.MsgFwdVel;
 import com.swiftnav.sbp.acquisition.MsgAcqResult;
 import com.swiftnav.sbp.acquisition.MsgAcqResultDepB;
 import com.swiftnav.sbp.acquisition.MsgAcqResultDepA;
@@ -122,6 +125,10 @@ import com.swiftnav.sbp.logging.MsgLog;
 import com.swiftnav.sbp.logging.MsgFwd;
 import com.swiftnav.sbp.logging.MsgTweet;
 import com.swiftnav.sbp.logging.MsgPrintDep;
+import com.swiftnav.sbp.orientation.MsgBaselineHeading;
+import com.swiftnav.sbp.orientation.MsgOrientQuat;
+import com.swiftnav.sbp.orientation.MsgOrientEuler;
+import com.swiftnav.sbp.orientation.MsgAngularRate;
 
 final class MessageTable {
     static SBPMessage dispatch(SBPMessage msg) throws SBPBinaryException {
@@ -144,6 +151,8 @@ final class MessageTable {
                 return new MsgPosECEF(msg);
             case MsgPosLLH.TYPE:
                 return new MsgPosLLH(msg);
+            case MsgPosLLHCov.TYPE:
+                return new MsgPosLLHCov(msg);
             case MsgBaselineECEF.TYPE:
                 return new MsgBaselineECEF(msg);
             case MsgBaselineNED.TYPE:
@@ -152,8 +161,10 @@ final class MessageTable {
                 return new MsgVelECEF(msg);
             case MsgVelNED.TYPE:
                 return new MsgVelNED(msg);
-            case MsgBaselineHeading.TYPE:
-                return new MsgBaselineHeading(msg);
+            case MsgVelNEDCov.TYPE:
+                return new MsgVelNEDCov(msg);
+            case MsgVelBody.TYPE:
+                return new MsgVelBody(msg);
             case MsgAgeCorrections.TYPE:
                 return new MsgAgeCorrections(msg);
             case MsgGPSTimeDepA.TYPE:
@@ -230,6 +241,8 @@ final class MessageTable {
                 return new MsgStmUniqueIdResp(msg);
             case MsgM25FlashWriteStatus.TYPE:
                 return new MsgM25FlashWriteStatus(msg);
+            case MsgFwdVel.TYPE:
+                return new MsgFwdVel(msg);
             case MsgAcqResult.TYPE:
                 return new MsgAcqResult(msg);
             case MsgAcqResultDepB.TYPE:
@@ -340,6 +353,14 @@ final class MessageTable {
                 return new MsgTweet(msg);
             case MsgPrintDep.TYPE:
                 return new MsgPrintDep(msg);
+            case MsgBaselineHeading.TYPE:
+                return new MsgBaselineHeading(msg);
+            case MsgOrientQuat.TYPE:
+                return new MsgOrientQuat(msg);
+            case MsgOrientEuler.TYPE:
+                return new MsgOrientEuler(msg);
+            case MsgAngularRate.TYPE:
+                return new MsgAngularRate(msg);
         }
         return msg;
     }

@@ -306,6 +306,82 @@ $(deriveJSON defaultOptions {fieldLabelModifier = fromMaybe "_msgPosLlh_" . P.st
              ''MsgPosLlh)
 $(makeLenses ''MsgPosLlh)
 
+msgPosLlhCov :: Word16
+msgPosLlhCov = 0x0211
+
+-- | SBP class for message MSG_POS_LLH_COV (0x0211).
+--
+-- This position solution message reports the absolute geodetic coordinates and
+-- the status (single point vs pseudo-absolute RTK) of the position solution as
+-- well as the upper triangle of the 3x3 covariance matrix.  The position
+-- information and Fix Mode flags should follow the MSG_POS_LLH message.  Since
+-- the covariance matrix is computed in the local-level North, East, Down
+-- frame, the covariance terms follow with that convention. Thus, covariances
+-- are reported against the "downward" measurement and care should be taken
+-- with the sign convention.
+data MsgPosLlhCov = MsgPosLlhCov
+  { _msgPosLlhCov_tow   :: Word32
+    -- ^ GPS Time of Week
+  , _msgPosLlhCov_lat   :: Double
+    -- ^ Latitude
+  , _msgPosLlhCov_lon   :: Double
+    -- ^ Longitude
+  , _msgPosLlhCov_height :: Double
+    -- ^ Height above WGS84 ellipsoid
+  , _msgPosLlhCov_cov_n_n :: Float
+    -- ^ Estimated variance of northing
+  , _msgPosLlhCov_cov_n_e :: Float
+    -- ^ Covariance of northing and easting
+  , _msgPosLlhCov_cov_n_d :: Float
+    -- ^ Covariance of northing and downward measurement
+  , _msgPosLlhCov_cov_e_e :: Float
+    -- ^ Estimated variance of easting
+  , _msgPosLlhCov_cov_e_d :: Float
+    -- ^ Covariance of easting and downward measurement
+  , _msgPosLlhCov_cov_d_d :: Float
+    -- ^ Estimated variance of downward measurement
+  , _msgPosLlhCov_n_sats :: Word8
+    -- ^ Number of satellites used in solution.
+  , _msgPosLlhCov_flags :: Word8
+    -- ^ Status flags
+  } deriving ( Show, Read, Eq )
+
+instance Binary MsgPosLlhCov where
+  get = do
+    _msgPosLlhCov_tow <- getWord32le
+    _msgPosLlhCov_lat <- getFloat64le
+    _msgPosLlhCov_lon <- getFloat64le
+    _msgPosLlhCov_height <- getFloat64le
+    _msgPosLlhCov_cov_n_n <- getFloat32le
+    _msgPosLlhCov_cov_n_e <- getFloat32le
+    _msgPosLlhCov_cov_n_d <- getFloat32le
+    _msgPosLlhCov_cov_e_e <- getFloat32le
+    _msgPosLlhCov_cov_e_d <- getFloat32le
+    _msgPosLlhCov_cov_d_d <- getFloat32le
+    _msgPosLlhCov_n_sats <- getWord8
+    _msgPosLlhCov_flags <- getWord8
+    return MsgPosLlhCov {..}
+
+  put MsgPosLlhCov {..} = do
+    putWord32le _msgPosLlhCov_tow
+    putFloat64le _msgPosLlhCov_lat
+    putFloat64le _msgPosLlhCov_lon
+    putFloat64le _msgPosLlhCov_height
+    putFloat32le _msgPosLlhCov_cov_n_n
+    putFloat32le _msgPosLlhCov_cov_n_e
+    putFloat32le _msgPosLlhCov_cov_n_d
+    putFloat32le _msgPosLlhCov_cov_e_e
+    putFloat32le _msgPosLlhCov_cov_e_d
+    putFloat32le _msgPosLlhCov_cov_d_d
+    putWord8 _msgPosLlhCov_n_sats
+    putWord8 _msgPosLlhCov_flags
+
+$(deriveSBP 'msgPosLlhCov ''MsgPosLlhCov)
+
+$(deriveJSON defaultOptions {fieldLabelModifier = fromMaybe "_msgPosLlhCov_" . P.stripPrefix "_msgPosLlhCov_"}
+             ''MsgPosLlhCov)
+$(makeLenses ''MsgPosLlhCov)
+
 msgBaselineEcef :: Word16
 msgBaselineEcef = 0x020B
 
@@ -523,45 +599,155 @@ $(deriveJSON defaultOptions {fieldLabelModifier = fromMaybe "_msgVelNed_" . P.st
              ''MsgVelNed)
 $(makeLenses ''MsgVelNed)
 
-msgBaselineHeading :: Word16
-msgBaselineHeading = 0x020F
+msgVelNedCov :: Word16
+msgVelNedCov = 0x0212
 
--- | SBP class for message MSG_BASELINE_HEADING (0x020F).
+-- | SBP class for message MSG_VEL_NED_COV (0x0212).
 --
--- This message reports the baseline heading pointing from the base station to
--- the rover relative to True North. The full GPS time is given by the
--- preceding MSG_GPS_TIME with the matching time-of-week (tow). It is intended
--- that time-matched RTK mode is used when the base station is moving.
-data MsgBaselineHeading = MsgBaselineHeading
-  { _msgBaselineHeading_tow   :: Word32
+-- This message reports the velocity in local North East Down (NED)
+-- coordinates. The NED coordinate system is defined as the local WGS84 tangent
+-- plane centered at the current position. The full GPS time is given by the
+-- preceding MSG_GPS_TIME with the matching time-of-week (tow). This message is
+-- similar to the MSG_VEL_NED, but it includes the upper triangular portion of
+-- the 3x3 covariance matrix.
+data MsgVelNedCov = MsgVelNedCov
+  { _msgVelNedCov_tow   :: Word32
     -- ^ GPS Time of Week
-  , _msgBaselineHeading_heading :: Word32
-    -- ^ Heading
-  , _msgBaselineHeading_n_sats :: Word8
+  , _msgVelNedCov_n     :: Int32
+    -- ^ Velocity North coordinate
+  , _msgVelNedCov_e     :: Int32
+    -- ^ Velocity East coordinate
+  , _msgVelNedCov_d     :: Int32
+    -- ^ Velocity Down coordinate
+  , _msgVelNedCov_cov_n_n :: Float
+    -- ^ Estimated variance of northward measurement
+  , _msgVelNedCov_cov_n_e :: Float
+    -- ^ Covariance of northward and eastward measurement
+  , _msgVelNedCov_cov_n_d :: Float
+    -- ^ Covariance of northward and downward measurement
+  , _msgVelNedCov_cov_e_e :: Float
+    -- ^ Estimated variance of eastward measurement
+  , _msgVelNedCov_cov_e_d :: Float
+    -- ^ Covariance of eastward and downward measurement
+  , _msgVelNedCov_cov_d_d :: Float
+    -- ^ Estimated variance of downward measurement
+  , _msgVelNedCov_n_sats :: Word8
     -- ^ Number of satellites used in solution
-  , _msgBaselineHeading_flags :: Word8
+  , _msgVelNedCov_flags :: Word8
     -- ^ Status flags
   } deriving ( Show, Read, Eq )
 
-instance Binary MsgBaselineHeading where
+instance Binary MsgVelNedCov where
   get = do
-    _msgBaselineHeading_tow <- getWord32le
-    _msgBaselineHeading_heading <- getWord32le
-    _msgBaselineHeading_n_sats <- getWord8
-    _msgBaselineHeading_flags <- getWord8
-    return MsgBaselineHeading {..}
+    _msgVelNedCov_tow <- getWord32le
+    _msgVelNedCov_n <- fromIntegral <$> getWord32le
+    _msgVelNedCov_e <- fromIntegral <$> getWord32le
+    _msgVelNedCov_d <- fromIntegral <$> getWord32le
+    _msgVelNedCov_cov_n_n <- getFloat32le
+    _msgVelNedCov_cov_n_e <- getFloat32le
+    _msgVelNedCov_cov_n_d <- getFloat32le
+    _msgVelNedCov_cov_e_e <- getFloat32le
+    _msgVelNedCov_cov_e_d <- getFloat32le
+    _msgVelNedCov_cov_d_d <- getFloat32le
+    _msgVelNedCov_n_sats <- getWord8
+    _msgVelNedCov_flags <- getWord8
+    return MsgVelNedCov {..}
 
-  put MsgBaselineHeading {..} = do
-    putWord32le _msgBaselineHeading_tow
-    putWord32le _msgBaselineHeading_heading
-    putWord8 _msgBaselineHeading_n_sats
-    putWord8 _msgBaselineHeading_flags
+  put MsgVelNedCov {..} = do
+    putWord32le _msgVelNedCov_tow
+    putWord32le $ fromIntegral _msgVelNedCov_n
+    putWord32le $ fromIntegral _msgVelNedCov_e
+    putWord32le $ fromIntegral _msgVelNedCov_d
+    putFloat32le _msgVelNedCov_cov_n_n
+    putFloat32le _msgVelNedCov_cov_n_e
+    putFloat32le _msgVelNedCov_cov_n_d
+    putFloat32le _msgVelNedCov_cov_e_e
+    putFloat32le _msgVelNedCov_cov_e_d
+    putFloat32le _msgVelNedCov_cov_d_d
+    putWord8 _msgVelNedCov_n_sats
+    putWord8 _msgVelNedCov_flags
 
-$(deriveSBP 'msgBaselineHeading ''MsgBaselineHeading)
+$(deriveSBP 'msgVelNedCov ''MsgVelNedCov)
 
-$(deriveJSON defaultOptions {fieldLabelModifier = fromMaybe "_msgBaselineHeading_" . P.stripPrefix "_msgBaselineHeading_"}
-             ''MsgBaselineHeading)
-$(makeLenses ''MsgBaselineHeading)
+$(deriveJSON defaultOptions {fieldLabelModifier = fromMaybe "_msgVelNedCov_" . P.stripPrefix "_msgVelNedCov_"}
+             ''MsgVelNedCov)
+$(makeLenses ''MsgVelNedCov)
+
+msgVelBody :: Word16
+msgVelBody = 0x0213
+
+-- | SBP class for message MSG_VEL_BODY (0x0213).
+--
+-- This message reports the velocity in the vehicle body frame. By convention,
+-- the x-axis should point out the nose of the vehicle and represent the
+-- forward direction, while as the y-axis should point out the right hand side
+-- of the vehicle. Since this is a right handed system, z should point out the
+-- bottom of the vehicle.   The full GPS time is given by the preceding
+-- MSG_GPS_TIME with the  matching time-of-week (tow).  This message is similar
+-- to the MSG_VEL_NED,  but it includes the upper triangular portion of the 3x3
+-- covariance matrix.
+data MsgVelBody = MsgVelBody
+  { _msgVelBody_tow   :: Word32
+    -- ^ GPS Time of Week
+  , _msgVelBody_x     :: Int32
+    -- ^ Velocity in x direction
+  , _msgVelBody_y     :: Int32
+    -- ^ Velocity in y direction
+  , _msgVelBody_z     :: Int32
+    -- ^ Velocity in z direction
+  , _msgVelBody_cov_x_x :: Float
+    -- ^ Estimated variance of x
+  , _msgVelBody_cov_x_y :: Float
+    -- ^ Covariance of x and y
+  , _msgVelBody_cov_x_z :: Float
+    -- ^ Covariance of x and z
+  , _msgVelBody_cov_y_y :: Float
+    -- ^ Estimated variance of y
+  , _msgVelBody_cov_y_z :: Float
+    -- ^ Covariance of y and z
+  , _msgVelBody_cov_z_z :: Float
+    -- ^ Estimated variance of z
+  , _msgVelBody_n_sats :: Word8
+    -- ^ Number of satellites used in solution
+  , _msgVelBody_flags :: Word8
+    -- ^ Status flags
+  } deriving ( Show, Read, Eq )
+
+instance Binary MsgVelBody where
+  get = do
+    _msgVelBody_tow <- getWord32le
+    _msgVelBody_x <- fromIntegral <$> getWord32le
+    _msgVelBody_y <- fromIntegral <$> getWord32le
+    _msgVelBody_z <- fromIntegral <$> getWord32le
+    _msgVelBody_cov_x_x <- getFloat32le
+    _msgVelBody_cov_x_y <- getFloat32le
+    _msgVelBody_cov_x_z <- getFloat32le
+    _msgVelBody_cov_y_y <- getFloat32le
+    _msgVelBody_cov_y_z <- getFloat32le
+    _msgVelBody_cov_z_z <- getFloat32le
+    _msgVelBody_n_sats <- getWord8
+    _msgVelBody_flags <- getWord8
+    return MsgVelBody {..}
+
+  put MsgVelBody {..} = do
+    putWord32le _msgVelBody_tow
+    putWord32le $ fromIntegral _msgVelBody_x
+    putWord32le $ fromIntegral _msgVelBody_y
+    putWord32le $ fromIntegral _msgVelBody_z
+    putFloat32le _msgVelBody_cov_x_x
+    putFloat32le _msgVelBody_cov_x_y
+    putFloat32le _msgVelBody_cov_x_z
+    putFloat32le _msgVelBody_cov_y_y
+    putFloat32le _msgVelBody_cov_y_z
+    putFloat32le _msgVelBody_cov_z_z
+    putWord8 _msgVelBody_n_sats
+    putWord8 _msgVelBody_flags
+
+$(deriveSBP 'msgVelBody ''MsgVelBody)
+
+$(deriveJSON defaultOptions {fieldLabelModifier = fromMaybe "_msgVelBody_" . P.stripPrefix "_msgVelBody_"}
+             ''MsgVelBody)
+$(makeLenses ''MsgVelBody)
 
 msgAgeCorrections :: Word16
 msgAgeCorrections = 0x0210

@@ -277,6 +277,72 @@ MsgPosLlh.prototype.fieldSpec.push(['n_sats', 'writeUInt8', 1]);
 MsgPosLlh.prototype.fieldSpec.push(['flags', 'writeUInt8', 1]);
 
 /**
+ * SBP class for message MSG_POS_LLH_COV (0x0211).
+ *
+ * This position solution message reports the absolute geodetic coordinates and the
+ * status (single point vs pseudo-absolute RTK) of the position solution as well as
+ * the upper triangle of the 3x3 covariance matrix.  The position information and
+ * Fix Mode flags should follow the MSG_POS_LLH message.  Since the covariance
+ * matrix is computed in the local-level North, East, Down frame, the covariance
+ * terms follow with that convention. Thus, covariances are reported against the
+ * "downward" measurement and care should be taken with the sign convention.
+ *
+ * Fields in the SBP payload (`sbp.payload`):
+ * @field tow number (unsigned 32-bit int, 4 bytes) GPS Time of Week
+ * @field lat number (float, 8 bytes) Latitude
+ * @field lon number (float, 8 bytes) Longitude
+ * @field height number (float, 8 bytes) Height above WGS84 ellipsoid
+ * @field cov_n_n number (float, 4 bytes) Estimated variance of northing
+ * @field cov_n_e number (float, 4 bytes) Covariance of northing and easting
+ * @field cov_n_d number (float, 4 bytes) Covariance of northing and downward measurement
+ * @field cov_e_e number (float, 4 bytes) Estimated variance of easting
+ * @field cov_e_d number (float, 4 bytes) Covariance of easting and downward measurement
+ * @field cov_d_d number (float, 4 bytes) Estimated variance of downward measurement
+ * @field n_sats number (unsigned 8-bit int, 1 byte) Number of satellites used in solution.
+ * @field flags number (unsigned 8-bit int, 1 byte) Status flags
+ *
+ * @param sbp An SBP object with a payload to be decoded.
+ */
+var MsgPosLlhCov = function (sbp, fields) {
+  SBP.call(this, sbp);
+  this.messageType = "MSG_POS_LLH_COV";
+  this.fields = (fields || this.parser.parse(sbp.payload));
+
+  return this;
+};
+MsgPosLlhCov.prototype = Object.create(SBP.prototype);
+MsgPosLlhCov.prototype.messageType = "MSG_POS_LLH_COV";
+MsgPosLlhCov.prototype.msg_type = 0x0211;
+MsgPosLlhCov.prototype.constructor = MsgPosLlhCov;
+MsgPosLlhCov.prototype.parser = new Parser()
+  .endianess('little')
+  .uint32('tow')
+  .doublele('lat')
+  .doublele('lon')
+  .doublele('height')
+  .floatle('cov_n_n')
+  .floatle('cov_n_e')
+  .floatle('cov_n_d')
+  .floatle('cov_e_e')
+  .floatle('cov_e_d')
+  .floatle('cov_d_d')
+  .uint8('n_sats')
+  .uint8('flags');
+MsgPosLlhCov.prototype.fieldSpec = [];
+MsgPosLlhCov.prototype.fieldSpec.push(['tow', 'writeUInt32LE', 4]);
+MsgPosLlhCov.prototype.fieldSpec.push(['lat', 'writeDoubleLE', 8]);
+MsgPosLlhCov.prototype.fieldSpec.push(['lon', 'writeDoubleLE', 8]);
+MsgPosLlhCov.prototype.fieldSpec.push(['height', 'writeDoubleLE', 8]);
+MsgPosLlhCov.prototype.fieldSpec.push(['cov_n_n', 'writeFloatLE', 4]);
+MsgPosLlhCov.prototype.fieldSpec.push(['cov_n_e', 'writeFloatLE', 4]);
+MsgPosLlhCov.prototype.fieldSpec.push(['cov_n_d', 'writeFloatLE', 4]);
+MsgPosLlhCov.prototype.fieldSpec.push(['cov_e_e', 'writeFloatLE', 4]);
+MsgPosLlhCov.prototype.fieldSpec.push(['cov_e_d', 'writeFloatLE', 4]);
+MsgPosLlhCov.prototype.fieldSpec.push(['cov_d_d', 'writeFloatLE', 4]);
+MsgPosLlhCov.prototype.fieldSpec.push(['n_sats', 'writeUInt8', 1]);
+MsgPosLlhCov.prototype.fieldSpec.push(['flags', 'writeUInt8', 1]);
+
+/**
  * SBP class for message MSG_BASELINE_ECEF (0x020B).
  *
  * This message reports the baseline solution in Earth Centered Earth Fixed (ECEF)
@@ -475,43 +541,135 @@ MsgVelNed.prototype.fieldSpec.push(['n_sats', 'writeUInt8', 1]);
 MsgVelNed.prototype.fieldSpec.push(['flags', 'writeUInt8', 1]);
 
 /**
- * SBP class for message MSG_BASELINE_HEADING (0x020F).
+ * SBP class for message MSG_VEL_NED_COV (0x0212).
  *
- * This message reports the baseline heading pointing from the base station to the
- * rover relative to True North. The full GPS time is given by the preceding
- * MSG_GPS_TIME with the matching time-of-week (tow). It is intended that time-
- * matched RTK mode is used when the base station is moving.
+ * This message reports the velocity in local North East Down (NED) coordinates.
+ * The NED coordinate system is defined as the local WGS84 tangent plane centered
+ * at the current position. The full GPS time is given by the preceding
+ * MSG_GPS_TIME with the matching time-of-week (tow). This message is similar to
+ * the MSG_VEL_NED, but it includes the upper triangular portion of the 3x3
+ * covariance matrix.
  *
  * Fields in the SBP payload (`sbp.payload`):
  * @field tow number (unsigned 32-bit int, 4 bytes) GPS Time of Week
- * @field heading number (unsigned 32-bit int, 4 bytes) Heading
+ * @field n number (signed 32-bit int, 4 bytes) Velocity North coordinate
+ * @field e number (signed 32-bit int, 4 bytes) Velocity East coordinate
+ * @field d number (signed 32-bit int, 4 bytes) Velocity Down coordinate
+ * @field cov_n_n number (float, 4 bytes) Estimated variance of northward measurement
+ * @field cov_n_e number (float, 4 bytes) Covariance of northward and eastward measurement
+ * @field cov_n_d number (float, 4 bytes) Covariance of northward and downward measurement
+ * @field cov_e_e number (float, 4 bytes) Estimated variance of eastward measurement
+ * @field cov_e_d number (float, 4 bytes) Covariance of eastward and downward measurement
+ * @field cov_d_d number (float, 4 bytes) Estimated variance of downward measurement
  * @field n_sats number (unsigned 8-bit int, 1 byte) Number of satellites used in solution
  * @field flags number (unsigned 8-bit int, 1 byte) Status flags
  *
  * @param sbp An SBP object with a payload to be decoded.
  */
-var MsgBaselineHeading = function (sbp, fields) {
+var MsgVelNedCov = function (sbp, fields) {
   SBP.call(this, sbp);
-  this.messageType = "MSG_BASELINE_HEADING";
+  this.messageType = "MSG_VEL_NED_COV";
   this.fields = (fields || this.parser.parse(sbp.payload));
 
   return this;
 };
-MsgBaselineHeading.prototype = Object.create(SBP.prototype);
-MsgBaselineHeading.prototype.messageType = "MSG_BASELINE_HEADING";
-MsgBaselineHeading.prototype.msg_type = 0x020F;
-MsgBaselineHeading.prototype.constructor = MsgBaselineHeading;
-MsgBaselineHeading.prototype.parser = new Parser()
+MsgVelNedCov.prototype = Object.create(SBP.prototype);
+MsgVelNedCov.prototype.messageType = "MSG_VEL_NED_COV";
+MsgVelNedCov.prototype.msg_type = 0x0212;
+MsgVelNedCov.prototype.constructor = MsgVelNedCov;
+MsgVelNedCov.prototype.parser = new Parser()
   .endianess('little')
   .uint32('tow')
-  .uint32('heading')
+  .int32('n')
+  .int32('e')
+  .int32('d')
+  .floatle('cov_n_n')
+  .floatle('cov_n_e')
+  .floatle('cov_n_d')
+  .floatle('cov_e_e')
+  .floatle('cov_e_d')
+  .floatle('cov_d_d')
   .uint8('n_sats')
   .uint8('flags');
-MsgBaselineHeading.prototype.fieldSpec = [];
-MsgBaselineHeading.prototype.fieldSpec.push(['tow', 'writeUInt32LE', 4]);
-MsgBaselineHeading.prototype.fieldSpec.push(['heading', 'writeUInt32LE', 4]);
-MsgBaselineHeading.prototype.fieldSpec.push(['n_sats', 'writeUInt8', 1]);
-MsgBaselineHeading.prototype.fieldSpec.push(['flags', 'writeUInt8', 1]);
+MsgVelNedCov.prototype.fieldSpec = [];
+MsgVelNedCov.prototype.fieldSpec.push(['tow', 'writeUInt32LE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['n', 'writeInt32LE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['e', 'writeInt32LE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['d', 'writeInt32LE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['cov_n_n', 'writeFloatLE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['cov_n_e', 'writeFloatLE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['cov_n_d', 'writeFloatLE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['cov_e_e', 'writeFloatLE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['cov_e_d', 'writeFloatLE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['cov_d_d', 'writeFloatLE', 4]);
+MsgVelNedCov.prototype.fieldSpec.push(['n_sats', 'writeUInt8', 1]);
+MsgVelNedCov.prototype.fieldSpec.push(['flags', 'writeUInt8', 1]);
+
+/**
+ * SBP class for message MSG_VEL_BODY (0x0213).
+ *
+ * This message reports the velocity in the vehicle body frame. By convention, the
+ * x-axis should point out the nose of the vehicle and represent the forward
+ * direction, while as the y-axis should point out the right hand side of the
+ * vehicle. Since this is a right handed system, z should point out the bottom of
+ * the vehicle.   The full GPS time is given by the preceding MSG_GPS_TIME with the
+ * matching time-of-week (tow).  This message is similar to the MSG_VEL_NED,  but
+ * it includes the upper triangular portion of the 3x3 covariance matrix.
+ *
+ * Fields in the SBP payload (`sbp.payload`):
+ * @field tow number (unsigned 32-bit int, 4 bytes) GPS Time of Week
+ * @field x number (signed 32-bit int, 4 bytes) Velocity in x direction
+ * @field y number (signed 32-bit int, 4 bytes) Velocity in y direction
+ * @field z number (signed 32-bit int, 4 bytes) Velocity in z direction
+ * @field cov_x_x number (float, 4 bytes) Estimated variance of x
+ * @field cov_x_y number (float, 4 bytes) Covariance of x and y
+ * @field cov_x_z number (float, 4 bytes) Covariance of x and z
+ * @field cov_y_y number (float, 4 bytes) Estimated variance of y
+ * @field cov_y_z number (float, 4 bytes) Covariance of y and z
+ * @field cov_z_z number (float, 4 bytes) Estimated variance of z
+ * @field n_sats number (unsigned 8-bit int, 1 byte) Number of satellites used in solution
+ * @field flags number (unsigned 8-bit int, 1 byte) Status flags
+ *
+ * @param sbp An SBP object with a payload to be decoded.
+ */
+var MsgVelBody = function (sbp, fields) {
+  SBP.call(this, sbp);
+  this.messageType = "MSG_VEL_BODY";
+  this.fields = (fields || this.parser.parse(sbp.payload));
+
+  return this;
+};
+MsgVelBody.prototype = Object.create(SBP.prototype);
+MsgVelBody.prototype.messageType = "MSG_VEL_BODY";
+MsgVelBody.prototype.msg_type = 0x0213;
+MsgVelBody.prototype.constructor = MsgVelBody;
+MsgVelBody.prototype.parser = new Parser()
+  .endianess('little')
+  .uint32('tow')
+  .int32('x')
+  .int32('y')
+  .int32('z')
+  .floatle('cov_x_x')
+  .floatle('cov_x_y')
+  .floatle('cov_x_z')
+  .floatle('cov_y_y')
+  .floatle('cov_y_z')
+  .floatle('cov_z_z')
+  .uint8('n_sats')
+  .uint8('flags');
+MsgVelBody.prototype.fieldSpec = [];
+MsgVelBody.prototype.fieldSpec.push(['tow', 'writeUInt32LE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['x', 'writeInt32LE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['y', 'writeInt32LE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['z', 'writeInt32LE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['cov_x_x', 'writeFloatLE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['cov_x_y', 'writeFloatLE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['cov_x_z', 'writeFloatLE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['cov_y_y', 'writeFloatLE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['cov_y_z', 'writeFloatLE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['cov_z_z', 'writeFloatLE', 4]);
+MsgVelBody.prototype.fieldSpec.push(['n_sats', 'writeUInt8', 1]);
+MsgVelBody.prototype.fieldSpec.push(['flags', 'writeUInt8', 1]);
 
 /**
  * SBP class for message MSG_AGE_CORRECTIONS (0x0210).
@@ -981,6 +1139,8 @@ module.exports = {
   MsgPosEcef: MsgPosEcef,
   0x020A: MsgPosLlh,
   MsgPosLlh: MsgPosLlh,
+  0x0211: MsgPosLlhCov,
+  MsgPosLlhCov: MsgPosLlhCov,
   0x020B: MsgBaselineEcef,
   MsgBaselineEcef: MsgBaselineEcef,
   0x020C: MsgBaselineNed,
@@ -989,8 +1149,10 @@ module.exports = {
   MsgVelEcef: MsgVelEcef,
   0x020E: MsgVelNed,
   MsgVelNed: MsgVelNed,
-  0x020F: MsgBaselineHeading,
-  MsgBaselineHeading: MsgBaselineHeading,
+  0x0212: MsgVelNedCov,
+  MsgVelNedCov: MsgVelNedCov,
+  0x0213: MsgVelBody,
+  MsgVelBody: MsgVelBody,
   0x0210: MsgAgeCorrections,
   MsgAgeCorrections: MsgAgeCorrections,
   0x0100: MsgGpsTimeDepA,

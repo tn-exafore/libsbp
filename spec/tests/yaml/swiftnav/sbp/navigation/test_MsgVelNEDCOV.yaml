@@ -9,14 +9,10 @@ tests:
        cov_e_d: 1
        cov_e_e: 1
        n_sats: 10
-       sender: 66
-       msg_type: 530
        cov_n_n: 1
        cov_n_e: 1
        tow: 100
        n: 1
-       crc: 52568
-       length: 42
        cov_n_d: 1
        flags: 0
        e: 1
