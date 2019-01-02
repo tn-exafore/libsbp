@@ -2,17 +2,17 @@
 <tagfile>
   <compound kind="file">
     <name>install.dox</name>
-    <path>/Users/dzollo/source/libsbp/c/docs/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/docs/</path>
     <filename>install_8dox</filename>
   </compound>
   <compound kind="file">
     <name>main.dox</name>
-    <path>/Users/dzollo/source/libsbp/c/docs/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/docs/</path>
     <filename>main_8dox</filename>
   </compound>
   <compound kind="file">
     <name>acquisition.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>acquisition_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <includes id="gnss_8h" name="gnss.h" local="yes" imported="no">gnss.h</includes>
@@ -125,7 +125,7 @@
   </compound>
   <compound kind="file">
     <name>bootload.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>bootload_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -205,7 +205,7 @@
   </compound>
   <compound kind="file">
     <name>common.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>common_8h</filename>
     <member kind="define">
       <type>#define</type>
@@ -273,7 +273,7 @@
   </compound>
   <compound kind="file">
     <name>edc.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>edc_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <member kind="function">
@@ -286,7 +286,7 @@
   </compound>
   <compound kind="file">
     <name>ext_events.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>ext__events_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -307,7 +307,7 @@
   </compound>
   <compound kind="file">
     <name>file_io.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>file__io_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -418,7 +418,7 @@
   </compound>
   <compound kind="file">
     <name>flash.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>flash_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -566,7 +566,7 @@
   </compound>
   <compound kind="file">
     <name>gnss.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>gnss_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -620,7 +620,7 @@
   </compound>
   <compound kind="file">
     <name>imu.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>imu_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -656,7 +656,7 @@
   </compound>
   <compound kind="file">
     <name>linux.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>linux_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -782,7 +782,7 @@
   </compound>
   <compound kind="file">
     <name>logging.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>logging_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -848,7 +848,7 @@
   </compound>
   <compound kind="file">
     <name>mag.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>mag_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -869,7 +869,7 @@
   </compound>
   <compound kind="file">
     <name>navigation.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>navigation_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -1235,7 +1235,7 @@
   </compound>
   <compound kind="file">
     <name>ndb.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>ndb_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <includes id="gnss_8h" name="gnss.h" local="yes" imported="no">gnss.h</includes>
@@ -1257,7 +1257,7 @@
   </compound>
   <compound kind="file">
     <name>observation.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>observation_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <includes id="gnss_8h" name="gnss.h" local="yes" imported="no">gnss.h</includes>
@@ -1886,7 +1886,7 @@
   </compound>
   <compound kind="file">
     <name>orientation.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>orientation_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -1952,7 +1952,7 @@
   </compound>
   <compound kind="file">
     <name>piksi.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>piksi_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <includes id="gnss_8h" name="gnss.h" local="yes" imported="no">gnss.h</includes>
@@ -2295,7 +2295,7 @@
   </compound>
   <compound kind="file">
     <name>sbas.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>sbas_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <includes id="gnss_8h" name="gnss.h" local="yes" imported="no">gnss.h</includes>
@@ -2317,7 +2317,7 @@
   </compound>
   <compound kind="file">
     <name>sbp.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>sbp_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">sbp_msg_callbacks_node</class>
@@ -2465,7 +2465,7 @@
   </compound>
   <compound kind="file">
     <name>settings.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>settings_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -2590,7 +2590,7 @@
   </compound>
   <compound kind="file">
     <name>ssr.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>ssr_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <includes id="gnss_8h" name="gnss.h" local="yes" imported="no">gnss.h</includes>
@@ -2673,7 +2673,7 @@
   </compound>
   <compound kind="file">
     <name>system.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>system_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -2769,7 +2769,7 @@
   </compound>
   <compound kind="file">
     <name>tracking.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>tracking_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <includes id="gnss_8h" name="gnss.h" local="yes" imported="no">gnss.h</includes>
@@ -2936,7 +2936,7 @@
   </compound>
   <compound kind="file">
     <name>user.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>user_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -2957,7 +2957,7 @@
   </compound>
   <compound kind="file">
     <name>vehicle.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>vehicle_8h</filename>
     <includes id="common_8h" name="common.h" local="yes" imported="no">common.h</includes>
     <class kind="struct">SBP_ATTR_PACKED</class>
@@ -2978,7 +2978,7 @@
   </compound>
   <compound kind="file">
     <name>version.h</name>
-    <path>/Users/dzollo/source/libsbp/c/include/libsbp/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/include/libsbp/</path>
     <filename>version_8h</filename>
     <member kind="define">
       <type>#define</type>
@@ -3004,7 +3004,7 @@
   </compound>
   <compound kind="file">
     <name>edc.c</name>
-    <path>/Users/dzollo/source/libsbp/c/src/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/src/</path>
     <filename>edc_8c</filename>
     <includes id="edc_8h" name="edc.h" local="yes" imported="no">libsbp/edc.h</includes>
     <member kind="function">
@@ -3017,7 +3017,7 @@
   </compound>
   <compound kind="file">
     <name>sbp.c</name>
-    <path>/Users/dzollo/source/libsbp/c/src/</path>
+    <path>/Users/benaltieri/Swift/libsbp/c/src/</path>
     <filename>sbp_8c</filename>
     <includes id="edc_8h" name="edc.h" local="yes" imported="no">libsbp/edc.h</includes>
     <includes id="sbp_8h" name="sbp.h" local="yes" imported="no">libsbp/sbp.h</includes>
@@ -5912,74 +5912,74 @@
     <filename>structsbp__state__t.html</filename>
     <member kind="enumvalue">
       <name>WAITING</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba757971c0bc5a1972d5f1b1be2c0e2087</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55ba757971c0bc5a1972d5f1b1be2c0e2087</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_TYPE</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba9d77c0f7e14e04b7ecc95a029f669d83</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55ba9d77c0f7e14e04b7ecc95a029f669d83</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_SENDER</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba66e9db660e0b9a41a016ee9aa17f1c8e</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55ba66e9db660e0b9a41a016ee9aa17f1c8e</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_LEN</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba965c0199bc105c4df58589bb6b228a83</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55ba965c0199bc105c4df58589bb6b228a83</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_MSG</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55baaaf15d67df991987408d4e77f15ff9e5</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55baaaf15d67df991987408d4e77f15ff9e5</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_CRC</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55bab043f4d9680ee3c06b3c0f7371da131b</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55bab043f4d9680ee3c06b3c0f7371da131b</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>WAITING</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba757971c0bc5a1972d5f1b1be2c0e2087</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55ba757971c0bc5a1972d5f1b1be2c0e2087</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_TYPE</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba9d77c0f7e14e04b7ecc95a029f669d83</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55ba9d77c0f7e14e04b7ecc95a029f669d83</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_SENDER</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba66e9db660e0b9a41a016ee9aa17f1c8e</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55ba66e9db660e0b9a41a016ee9aa17f1c8e</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_LEN</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba965c0199bc105c4df58589bb6b228a83</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55ba965c0199bc105c4df58589bb6b228a83</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_MSG</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55baaaf15d67df991987408d4e77f15ff9e5</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55baaaf15d67df991987408d4e77f15ff9e5</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>GET_CRC</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55bab043f4d9680ee3c06b3c0f7371da131b</anchor>
+      <anchorfile>structsbp__state__t.html</anchorfile>
+      <anchor>a06fc87d81c62e9abb8790b6e5713c55bab043f4d9680ee3c06b3c0f7371da131b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -6173,42 +6173,6 @@
       <name>sbp_msg_callbacks_node_t</name>
       <anchorfile>group__sbp.html</anchorfile>
       <anchor>ga69dc672590b2d79ba11f98dbaa0b33bc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>WAITING</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba757971c0bc5a1972d5f1b1be2c0e2087</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>GET_TYPE</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba9d77c0f7e14e04b7ecc95a029f669d83</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>GET_SENDER</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba66e9db660e0b9a41a016ee9aa17f1c8e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>GET_LEN</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55ba965c0199bc105c4df58589bb6b228a83</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>GET_MSG</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55baaaf15d67df991987408d4e77f15ff9e5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>GET_CRC</name>
-      <anchorfile>group__sbp.html</anchorfile>
-      <anchor>gga06fc87d81c62e9abb8790b6e5713c55bab043f4d9680ee3c06b3c0f7371da131b</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">

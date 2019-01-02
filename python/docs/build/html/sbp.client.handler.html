@@ -1,140 +1,48 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>sbp.client.handler module &mdash; sbp 0.27 documentation</title>
-    
+    <title>sbp.client.handler module &#8212; sbp 0.27 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="sbp 0.27 documentation" href="index.html" />
-    <link rel="up" title="sbp.client package" href="sbp.client.html" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="sbp.acquisition module" href="sbp.acquisition.html" />
     <link rel="prev" title="sbp.client.framer module" href="sbp.client.framer.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">  
+  <body>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-sbp.client.handler">
-<span id="sbp-client-handler-module"></span><h1>sbp.client.handler module<a class="headerlink" href="#module-sbp.client.handler" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-sbp.client.handler" title="sbp.client.handler"><code class="xref py py-mod docutils literal"><span class="pre">sbp.client.handler</span></code></a> module contains classes related to
-SBP message handling.</p>
-<dl class="class">
-<dt id="sbp.client.handler.Handler">
-<em class="property">class </em><code class="descclassname">sbp.client.handler.</code><code class="descname">Handler</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>The <a class="reference internal" href="#sbp.client.handler.Handler" title="sbp.client.handler.Handler"><code class="xref py py-class docutils literal"><span class="pre">Handler</span></code></a> class provides an interface for connecting handlers
-to a driver providing SBP messages.  Also provides queued and filtered
-iterators for synchronous, blocking use in other threads.</p>
-<dl class="docutils">
-<dt>source</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">Iterable of tuple(SBP message, {&#8216;time&#8217;:&#8217;ISO 8601 str&#8217;})</span><dd>Stream of SBP messages</dd>
-</dl>
-<dl class="method">
-<dt id="sbp.client.handler.Handler.add_callback">
-<code class="descname">add_callback</code><span class="sig-paren">(</span><em>callback</em>, <em>msg_type=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler.add_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler.add_callback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add per message type or global callback.</p>
-<dl class="docutils">
-<dt>callback</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">fn</span><dd>Callback function</dd>
-<dt>msg_type</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int | iterable</span><dd>Message type to register callback against. Default <cite>None</cite> means global callback.
-Iterable type adds the callback to all the message types.</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.handler.Handler.filter">
-<code class="descname">filter</code><span class="sig-paren">(</span><em>msg_type=None</em>, <em>maxsize=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler.filter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a filtered iterator of messages for synchronous, blocking use in
-another thread.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.handler.Handler.is_alive">
-<code class="descname">is_alive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler.is_alive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler.is_alive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return whether the processes thread is alive.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.handler.Handler.remove_callback">
-<code class="descname">remove_callback</code><span class="sig-paren">(</span><em>callback</em>, <em>msg_type=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler.remove_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler.remove_callback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove per message type of global callback.</p>
-<dl class="docutils">
-<dt>callback</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">fn</span><dd>Callback function</dd>
-<dt>msg_type</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int | iterable</span><dd>Message type to remove callback from. Default <cite>None</cite> means global callback.
-Iterable type removes the callback from all the message types.</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.handler.Handler.start">
-<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler.start" title="Permalink to this definition">¶</a></dt>
-<dd><p>Start processing SBP messages with handlers.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.handler.Handler.stop">
-<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler.stop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stop processing SBP messages.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.handler.Handler.wait">
-<code class="descname">wait</code><span class="sig-paren">(</span><em>msg_type</em>, <em>timeout=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler.wait" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wait for a SBP message.</p>
-<dl class="docutils">
-<dt>msg_type</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>SBP message type.</dd>
-<dt>timeout</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">float</span><dd>Waiting period</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.handler.Handler.wait_callback">
-<code class="descname">wait_callback</code><span class="sig-paren">(</span><em>callback</em>, <em>msg_type=None</em>, <em>timeout=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/handler.html#Handler.wait_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.handler.Handler.wait_callback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wait for a SBP message with a callback.</p>
-<dl class="docutils">
-<dt>callback</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">fn</span><dd>Callback function</dd>
-<dt>msg_type</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int | iterable</span><dd>Message type to register callback against. Default <cite>None</cite> means global callback.
-Iterable type adds the callback to all the message types.</dd>
-<dt>timeout</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">float</span><dd>Waiting period</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="sbp-client-handler-module">
+<h1>sbp.client.handler module<a class="headerlink" href="#sbp-client-handler-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -158,15 +66,15 @@ Iterable type adds the callback to all the message types.</dd>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/sbp.client.handler.txt"
+      <li><a href="_sources/sbp.client.handler.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -180,11 +88,11 @@ Iterable type adds the callback to all the message types.</dd>
       &copy;2015, Swift Navigation.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/sbp.client.handler.txt"
+      <a href="_sources/sbp.client.handler.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

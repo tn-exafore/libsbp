@@ -1,4 +1,4 @@
-# Install script for directory: /Users/dzollo/source/libsbp/c/docs
+# Install script for directory: /Users/benaltieri/Swift/libsbp/c/docs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

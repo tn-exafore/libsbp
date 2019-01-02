@@ -1,325 +1,48 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>sbp.system module &mdash; sbp 0.27 documentation</title>
-    
+    <title>sbp.system module &#8212; sbp 0.27 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="sbp 0.27 documentation" href="index.html" />
-    <link rel="up" title="sbp package" href="sbp.html" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="sbp.table module" href="sbp.table.html" />
     <link rel="prev" title="sbp.ssr module" href="sbp.ssr.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">  
+  <body>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-sbp.system">
-<span id="sbp-system-module"></span><h1>sbp.system module<a class="headerlink" href="#module-sbp.system" title="Permalink to this headline">¶</a></h1>
-<p>Standardized system messages from Swift Navigation devices.</p>
-<dl class="class">
-<dt id="sbp.system.MsgDgnssStatus">
-<em class="property">class </em><code class="descclassname">sbp.system.</code><code class="descname">MsgDgnssStatus</code><span class="sig-paren">(</span><em>sbp=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgDgnssStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgDgnssStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="sbp.msg.html#sbp.msg.SBP" title="sbp.msg.SBP"><code class="xref py py-class docutils literal"><span class="pre">sbp.msg.SBP</span></code></a></p>
-<p>SBP class for message MSG_DGNSS_STATUS (0xFF02).</p>
-<blockquote>
-<div><p>You can have MSG_DGNSS_STATUS inherit its fields directly
-from an inherited SBP object, or construct it inline using a dict
-of its fields.</p>
-<p>This message provides information about the receipt of Differential</p>
-</div></blockquote>
-<p>corrections.  It is expected to be sent with each receipt of a complete
-corrections packet.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>sbp</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">SBP</span><dd>SBP parent object to inherit from.</dd>
-<dt>flags</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Status flags</dd>
-<dt>latency</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Latency of observation receipt</dd>
-<dt>num_signals</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Number of signals from base station</dd>
-<dt>source</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">string</span><dd>Corrections source string</dd>
-<dt>sender</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Optional sender ID, defaults to SENDER_ID (see sbp/msg.py).</dd>
-</dl>
-</div></blockquote>
-<dl class="attribute">
-<dt id="sbp.system.MsgDgnssStatus.flags">
-<code class="descname">flags</code><a class="headerlink" href="#sbp.system.MsgDgnssStatus.flags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgDgnssStatus.from_binary">
-<code class="descname">from_binary</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgDgnssStatus.from_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgDgnssStatus.from_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a binary payload d, update the appropriate payload fields of
-the message.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.system.MsgDgnssStatus.from_json">
-<em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgDgnssStatus.from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgDgnssStatus.from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a JSON-encoded string s, build a message object.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.system.MsgDgnssStatus.from_json_dict">
-<em class="property">static </em><code class="descname">from_json_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgDgnssStatus.from_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgDgnssStatus.from_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.system.MsgDgnssStatus.latency">
-<code class="descname">latency</code><a class="headerlink" href="#sbp.system.MsgDgnssStatus.latency" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.system.MsgDgnssStatus.num_signals">
-<code class="descname">num_signals</code><a class="headerlink" href="#sbp.system.MsgDgnssStatus.num_signals" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.system.MsgDgnssStatus.source">
-<code class="descname">source</code><a class="headerlink" href="#sbp.system.MsgDgnssStatus.source" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgDgnssStatus.to_binary">
-<code class="descname">to_binary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgDgnssStatus.to_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgDgnssStatus.to_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produce a framed/packed SBP message.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgDgnssStatus.to_json_dict">
-<code class="descname">to_json_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgDgnssStatus.to_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgDgnssStatus.to_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="sbp.system.MsgHeartbeat">
-<em class="property">class </em><code class="descclassname">sbp.system.</code><code class="descname">MsgHeartbeat</code><span class="sig-paren">(</span><em>sbp=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgHeartbeat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgHeartbeat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="sbp.msg.html#sbp.msg.SBP" title="sbp.msg.SBP"><code class="xref py py-class docutils literal"><span class="pre">sbp.msg.SBP</span></code></a></p>
-<p>SBP class for message MSG_HEARTBEAT (0xFFFF).</p>
-<blockquote>
-<div><p>You can have MSG_HEARTBEAT inherit its fields directly
-from an inherited SBP object, or construct it inline using a dict
-of its fields.</p>
-<p>The heartbeat message is sent periodically to inform the host</p>
-</div></blockquote>
-<p>or other attached devices that the system is running. It is
-used to monitor system malfunctions. It also contains status
-flags that indicate to the host the status of the system and
-whether it is operating correctly. Currently, the expected
-heartbeat interval is 1 sec.</p>
-<p>The system error flag is used to indicate that an error has
-occurred in the system. To determine the source of the error,
-the remaining error flags should be inspected.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>sbp</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">SBP</span><dd>SBP parent object to inherit from.</dd>
-<dt>flags</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Status flags</dd>
-<dt>sender</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Optional sender ID, defaults to SENDER_ID (see sbp/msg.py).</dd>
-</dl>
-</div></blockquote>
-<dl class="attribute">
-<dt id="sbp.system.MsgHeartbeat.flags">
-<code class="descname">flags</code><a class="headerlink" href="#sbp.system.MsgHeartbeat.flags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgHeartbeat.from_binary">
-<code class="descname">from_binary</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgHeartbeat.from_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgHeartbeat.from_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a binary payload d, update the appropriate payload fields of
-the message.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.system.MsgHeartbeat.from_json">
-<em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgHeartbeat.from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgHeartbeat.from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a JSON-encoded string s, build a message object.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.system.MsgHeartbeat.from_json_dict">
-<em class="property">static </em><code class="descname">from_json_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgHeartbeat.from_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgHeartbeat.from_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgHeartbeat.to_binary">
-<code class="descname">to_binary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgHeartbeat.to_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgHeartbeat.to_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produce a framed/packed SBP message.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgHeartbeat.to_json_dict">
-<code class="descname">to_json_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgHeartbeat.to_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgHeartbeat.to_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="sbp.system.MsgInsStatus">
-<em class="property">class </em><code class="descclassname">sbp.system.</code><code class="descname">MsgInsStatus</code><span class="sig-paren">(</span><em>sbp=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgInsStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgInsStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="sbp.msg.html#sbp.msg.SBP" title="sbp.msg.SBP"><code class="xref py py-class docutils literal"><span class="pre">sbp.msg.SBP</span></code></a></p>
-<p>SBP class for message MSG_INS_STATUS (0xFF03).</p>
-<blockquote>
-<div><p>You can have MSG_INS_STATUS inherit its fields directly
-from an inherited SBP object, or construct it inline using a dict
-of its fields.</p>
-<p>The INS status message describes the state of the operation</p>
-</div></blockquote>
-<p>and initialization of the inertial navigation system.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>sbp</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">SBP</span><dd>SBP parent object to inherit from.</dd>
-<dt>flags</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Status flags</dd>
-<dt>sender</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Optional sender ID, defaults to SENDER_ID (see sbp/msg.py).</dd>
-</dl>
-</div></blockquote>
-<dl class="attribute">
-<dt id="sbp.system.MsgInsStatus.flags">
-<code class="descname">flags</code><a class="headerlink" href="#sbp.system.MsgInsStatus.flags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgInsStatus.from_binary">
-<code class="descname">from_binary</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgInsStatus.from_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgInsStatus.from_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a binary payload d, update the appropriate payload fields of
-the message.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.system.MsgInsStatus.from_json">
-<em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgInsStatus.from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgInsStatus.from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a JSON-encoded string s, build a message object.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.system.MsgInsStatus.from_json_dict">
-<em class="property">static </em><code class="descname">from_json_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgInsStatus.from_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgInsStatus.from_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgInsStatus.to_binary">
-<code class="descname">to_binary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgInsStatus.to_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgInsStatus.to_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produce a framed/packed SBP message.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgInsStatus.to_json_dict">
-<code class="descname">to_json_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgInsStatus.to_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgInsStatus.to_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="sbp.system.MsgStartup">
-<em class="property">class </em><code class="descclassname">sbp.system.</code><code class="descname">MsgStartup</code><span class="sig-paren">(</span><em>sbp=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgStartup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgStartup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="sbp.msg.html#sbp.msg.SBP" title="sbp.msg.SBP"><code class="xref py py-class docutils literal"><span class="pre">sbp.msg.SBP</span></code></a></p>
-<p>SBP class for message MSG_STARTUP (0xFF00).</p>
-<blockquote>
-<div><p>You can have MSG_STARTUP inherit its fields directly
-from an inherited SBP object, or construct it inline using a dict
-of its fields.</p>
-<p>The system start-up message is sent once on system</p>
-</div></blockquote>
-<p>start-up. It notifies the host or other attached devices that
-the system has started and is now ready to respond to commands
-or configuration requests.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>sbp</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">SBP</span><dd>SBP parent object to inherit from.</dd>
-<dt>cause</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Cause of startup</dd>
-<dt>startup_type</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Startup type</dd>
-<dt>reserved</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Reserved</dd>
-<dt>sender</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Optional sender ID, defaults to SENDER_ID (see sbp/msg.py).</dd>
-</dl>
-</div></blockquote>
-<dl class="attribute">
-<dt id="sbp.system.MsgStartup.cause">
-<code class="descname">cause</code><a class="headerlink" href="#sbp.system.MsgStartup.cause" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgStartup.from_binary">
-<code class="descname">from_binary</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgStartup.from_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgStartup.from_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a binary payload d, update the appropriate payload fields of
-the message.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.system.MsgStartup.from_json">
-<em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgStartup.from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgStartup.from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a JSON-encoded string s, build a message object.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.system.MsgStartup.from_json_dict">
-<em class="property">static </em><code class="descname">from_json_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgStartup.from_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgStartup.from_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.system.MsgStartup.reserved">
-<code class="descname">reserved</code><a class="headerlink" href="#sbp.system.MsgStartup.reserved" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.system.MsgStartup.startup_type">
-<code class="descname">startup_type</code><a class="headerlink" href="#sbp.system.MsgStartup.startup_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgStartup.to_binary">
-<code class="descname">to_binary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgStartup.to_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgStartup.to_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produce a framed/packed SBP message.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.system.MsgStartup.to_json_dict">
-<code class="descname">to_json_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/system.html#MsgStartup.to_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.system.MsgStartup.to_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="sbp-system-module">
+<h1>sbp.system module<a class="headerlink" href="#sbp-system-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -341,15 +64,15 @@ the message.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/sbp.system.txt"
+      <li><a href="_sources/sbp.system.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -363,11 +86,11 @@ the message.</p>
       &copy;2015, Swift Navigation.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/sbp.system.txt"
+      <a href="_sources/sbp.system.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

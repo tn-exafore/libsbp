@@ -1,88 +1,48 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>sbp.client.drivers.pyserial_driver module &mdash; sbp 0.27 documentation</title>
-    
+    <title>sbp.client.drivers.pyserial_driver module &#8212; sbp 0.27 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="sbp 0.27 documentation" href="index.html" />
-    <link rel="up" title="sbp.client.drivers package" href="sbp.client.drivers.html" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="sbp.client.loggers package" href="sbp.client.loggers.html" />
     <link rel="prev" title="sbp.client.drivers.pyftdi_driver module" href="sbp.client.drivers.pyftdi_driver.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">  
+  <body>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-sbp.client.drivers.pyserial_driver">
-<span id="sbp-client-drivers-pyserial-driver-module"></span><h1>sbp.client.drivers.pyserial_driver module<a class="headerlink" href="#module-sbp.client.drivers.pyserial_driver" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="sbp.client.drivers.pyserial_driver.PySerialDriver">
-<em class="property">class </em><code class="descclassname">sbp.client.drivers.pyserial_driver.</code><code class="descname">PySerialDriver</code><span class="sig-paren">(</span><em>port</em>, <em>baud=115200</em>, <em>rtscts=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/drivers/pyserial_driver.html#PySerialDriver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.drivers.pyserial_driver.PySerialDriver" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="sbp.client.drivers.base_driver.html#sbp.client.drivers.base_driver.BaseDriver" title="sbp.client.drivers.base_driver.BaseDriver"><code class="xref py py-class docutils literal"><span class="pre">sbp.client.drivers.base_driver.BaseDriver</span></code></a></p>
-<p>The <a class="reference internal" href="#sbp.client.drivers.pyserial_driver.PySerialDriver" title="sbp.client.drivers.pyserial_driver.PySerialDriver"><code class="xref py py-class docutils literal"><span class="pre">PySerialDriver</span></code></a> class reads SBP messages from a serial port
-using the pyserial driver.  This is mostly redundant, is the Serial object&#8217;s
-read and write methods can be used directly.</p>
-<dl class="docutils">
-<dt>port</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">string</span><dd>URI to port to read SBP messages from. Accepts the following types
-of URLs:
-- rfc2217://&lt;host&gt;:&lt;port&gt;[/&lt;option&gt;[/&lt;option&gt;]]
-- socket://&lt;host&gt;:&lt;port&gt;[/&lt;option&gt;[/&lt;option&gt;]]
-- loop://[&lt;option&gt;[/&lt;option&gt;]]
-and device names, such as /dev/ttyUSB0 (Linux) and COM3 (Windows). See
-http://pyserial.sourceforge.net/pyserial_api.html#urls for more details.</dd>
-<dt>baud</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Baud rate of serial port (defaults to 115200)</dd>
-</dl>
-<dl class="method">
-<dt id="sbp.client.drivers.pyserial_driver.PySerialDriver.read">
-<code class="descname">read</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/drivers/pyserial_driver.html#PySerialDriver.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.drivers.pyserial_driver.PySerialDriver.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read wrapper.</p>
-<dl class="docutils">
-<dt>size</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Number of bytes to read.</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.drivers.pyserial_driver.PySerialDriver.write">
-<code class="descname">write</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/drivers/pyserial_driver.html#PySerialDriver.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.drivers.pyserial_driver.PySerialDriver.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write wrapper.</p>
-<dl class="docutils">
-<dt>s</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">bytes</span><dd>Bytes to write</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="sbp-client-drivers-pyserial-driver-module">
+<h1>sbp.client.drivers.pyserial_driver module<a class="headerlink" href="#sbp-client-drivers-pyserial-driver-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -108,15 +68,15 @@ http://pyserial.sourceforge.net/pyserial_api.html#urls for more details.</dd>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/sbp.client.drivers.pyserial_driver.txt"
+      <li><a href="_sources/sbp.client.drivers.pyserial_driver.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -130,11 +90,11 @@ http://pyserial.sourceforge.net/pyserial_api.html#urls for more details.</dd>
       &copy;2015, Swift Navigation.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/sbp.client.drivers.pyserial_driver.txt"
+      <a href="_sources/sbp.client.drivers.pyserial_driver.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

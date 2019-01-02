@@ -32,7 +32,7 @@ PROJECT_NAME           = libsbp
 # This could be handy for archiving the generated documentation or
 # if some version control system is used.
 
-PROJECT_NUMBER         = v2.4.5-10-g0a767a15-dirty
+PROJECT_NUMBER         = v2.4.6-15-gb92f14c5
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer
@@ -52,7 +52,7 @@ PROJECT_LOGO           =
 # If a relative path is entered, it will be relative to the location
 # where doxygen was started. If left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = /Users/dzollo/source/libsbp/c/build/docs
+OUTPUT_DIRECTORY       = /Users/benaltieri/Swift/libsbp/c/build/docs
 
 # If the CREATE_SUBDIRS tag is set to YES, then doxygen will create
 # 4096 sub-directories (in 2 levels) under the output directory of each output
@@ -140,7 +140,7 @@ FULL_PATH_NAMES        = YES
 # relative paths, which will be relative from the directory where doxygen is
 # started.
 
-STRIP_FROM_PATH        = /Users/dzollo/source/libsbp/c
+STRIP_FROM_PATH        = /Users/benaltieri/Swift/libsbp/c
 
 # The STRIP_FROM_INC_PATH tag can be used to strip a user-defined part of
 # the path mentioned in the documentation of a class, which tells
@@ -671,9 +671,9 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  = /Users/dzollo/source/libsbp/c/src/ \
-                         /Users/dzollo/source/libsbp/c/include/ \
-                         /Users/dzollo/source/libsbp/c/docs/
+INPUT                  = /Users/benaltieri/Swift/libsbp/c/src/ \
+                         /Users/benaltieri/Swift/libsbp/c/include/ \
+                         /Users/benaltieri/Swift/libsbp/c/docs/
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -783,7 +783,7 @@ EXAMPLE_RECURSIVE      = NO
 # directories that contain image that are included in the documentation (see
 # the \image command).
 
-IMAGE_PATH             = /Users/dzollo/source/libsbp/c/build/docs/diagrams/
+IMAGE_PATH             = /Users/benaltieri/Swift/libsbp/c/build/docs/diagrams/
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -1651,7 +1651,7 @@ HIDE_UNDOC_RELATIONS   = YES
 # toolkit from AT&T and Lucent Bell Labs. The other options in this section
 # have no effect if this option is set to NO (the default)
 
-HAVE_DOT               = YES
+HAVE_DOT               = NO
 
 # The DOT_NUM_THREADS specifies the number of dot invocations doxygen is
 # allowed to run in parallel. When set to 0 (the default) doxygen will
@@ -1782,7 +1782,7 @@ INTERACTIVE_SVG        = NO
 # The tag DOT_PATH can be used to specify the path where the dot tool can be
 # found. If left blank, it is assumed the dot tool can be found in the path.
 
-DOT_PATH               = /usr/local/bin
+DOT_PATH               = 
 
 # The DOTFILE_DIRS tag can be used to specify one or more directories that
 # contain dot files that are included in the documentation (see the

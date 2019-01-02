@@ -1,140 +1,48 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>sbp.ext_events module &mdash; sbp 0.27 documentation</title>
-    
+    <title>sbp.ext_events module &#8212; sbp 0.27 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="sbp 0.27 documentation" href="index.html" />
-    <link rel="up" title="sbp package" href="sbp.html" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="sbp.file_io module" href="sbp.file_io.html" />
     <link rel="prev" title="sbp.bootload module" href="sbp.bootload.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">  
+  <body>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-sbp.ext_events">
-<span id="sbp-ext-events-module"></span><h1>sbp.ext_events module<a class="headerlink" href="#module-sbp.ext_events" title="Permalink to this headline">¶</a></h1>
-<p>Messages reporting accurately-timestamped external events,
-e.g. camera shutter time.</p>
-<dl class="class">
-<dt id="sbp.ext_events.MsgExtEvent">
-<em class="property">class </em><code class="descclassname">sbp.ext_events.</code><code class="descname">MsgExtEvent</code><span class="sig-paren">(</span><em>sbp=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/ext_events.html#MsgExtEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.ext_events.MsgExtEvent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="sbp.msg.html#sbp.msg.SBP" title="sbp.msg.SBP"><code class="xref py py-class docutils literal"><span class="pre">sbp.msg.SBP</span></code></a></p>
-<p>SBP class for message MSG_EXT_EVENT (0x0101).</p>
-<blockquote>
-<div><p>You can have MSG_EXT_EVENT inherit its fields directly
-from an inherited SBP object, or construct it inline using a dict
-of its fields.</p>
-<p>Reports detection of an external event, the GPS time it occurred,</p>
-</div></blockquote>
-<p>which pin it was and whether it was rising or falling.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>sbp</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">SBP</span><dd>SBP parent object to inherit from.</dd>
-<dt>wn</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>GPS week number</dd>
-<dt>tow</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>GPS time of week rounded to the nearest millisecond</dd>
-<dt>ns_residual</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Nanosecond residual of millisecond-rounded TOW (ranges</dd>
-</dl>
-</div></blockquote>
-<p>from -500000 to 500000)</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>flags</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Flags</dd>
-<dt>pin</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Pin number.  0..9 = DEBUG0..9.</dd>
-<dt>sender</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Optional sender ID, defaults to SENDER_ID (see sbp/msg.py).</dd>
-</dl>
-</div></blockquote>
-<dl class="attribute">
-<dt id="sbp.ext_events.MsgExtEvent.flags">
-<code class="descname">flags</code><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.flags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.ext_events.MsgExtEvent.from_binary">
-<code class="descname">from_binary</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/ext_events.html#MsgExtEvent.from_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.from_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a binary payload d, update the appropriate payload fields of
-the message.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.ext_events.MsgExtEvent.from_json">
-<em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/ext_events.html#MsgExtEvent.from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a JSON-encoded string s, build a message object.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="sbp.ext_events.MsgExtEvent.from_json_dict">
-<em class="property">static </em><code class="descname">from_json_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/ext_events.html#MsgExtEvent.from_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.from_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.ext_events.MsgExtEvent.ns_residual">
-<code class="descname">ns_residual</code><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.ns_residual" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.ext_events.MsgExtEvent.pin">
-<code class="descname">pin</code><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.pin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.ext_events.MsgExtEvent.to_binary">
-<code class="descname">to_binary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/ext_events.html#MsgExtEvent.to_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.to_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produce a framed/packed SBP message.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="sbp.ext_events.MsgExtEvent.to_json_dict">
-<code class="descname">to_json_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/ext_events.html#MsgExtEvent.to_json_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.to_json_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.ext_events.MsgExtEvent.tow">
-<code class="descname">tow</code><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.tow" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="sbp.ext_events.MsgExtEvent.wn">
-<code class="descname">wn</code><a class="headerlink" href="#sbp.ext_events.MsgExtEvent.wn" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="sbp-ext-events-module">
+<h1>sbp.ext_events module<a class="headerlink" href="#sbp-ext-events-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -156,15 +64,15 @@ the message.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/sbp.ext_events.txt"
+      <li><a href="_sources/sbp.ext_events.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -178,11 +86,11 @@ the message.</p>
       &copy;2015, Swift Navigation.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/sbp.ext_events.txt"
+      <a href="_sources/sbp.ext_events.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

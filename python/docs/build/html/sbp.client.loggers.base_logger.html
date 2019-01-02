@@ -1,112 +1,48 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>sbp.client.loggers.base_logger module &mdash; sbp 0.27 documentation</title>
-    
+    <title>sbp.client.loggers.base_logger module &#8212; sbp 0.27 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="sbp 0.27 documentation" href="index.html" />
-    <link rel="up" title="sbp.client.loggers package" href="sbp.client.loggers.html" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="sbp.client.loggers.json_logger module" href="sbp.client.loggers.json_logger.html" />
     <link rel="prev" title="sbp.client.loggers package" href="sbp.client.loggers.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">  
+  <body>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-sbp.client.loggers.base_logger">
-<span id="sbp-client-loggers-base-logger-module"></span><h1>sbp.client.loggers.base_logger module<a class="headerlink" href="#module-sbp.client.loggers.base_logger" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="sbp.client.loggers.base_logger.BaseLogger">
-<em class="property">class </em><code class="descclassname">sbp.client.loggers.base_logger.</code><code class="descname">BaseLogger</code><span class="sig-paren">(</span><em>handle</em>, <em>tags={}</em>, <em>dispatcher=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#BaseLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.BaseLogger" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>The <a class="reference internal" href="#sbp.client.loggers.base_logger.BaseLogger" title="sbp.client.loggers.base_logger.BaseLogger"><code class="xref py py-class docutils literal"><span class="pre">BaseLogger</span></code></a> provides log helper functions and context management.</p>
-<dl class="docutils">
-<dt>handle</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">filehandle</span><dd>File to log to.</dd>
-</dl>
-<dl class="method">
-<dt id="sbp.client.loggers.base_logger.BaseLogger.close">
-<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#BaseLogger.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.BaseLogger.close" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.loggers.base_logger.BaseLogger.dispatch">
-<code class="descname">dispatch</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#BaseLogger.dispatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.BaseLogger.dispatch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.loggers.base_logger.BaseLogger.flush">
-<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#BaseLogger.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.BaseLogger.flush" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="sbp.client.loggers.base_logger.LogIterator">
-<em class="property">class </em><code class="descclassname">sbp.client.loggers.base_logger.</code><code class="descname">LogIterator</code><span class="sig-paren">(</span><em>handle</em>, <em>dispatcher=&lt;function dispatch&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#LogIterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.LogIterator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>The :class: <cite>LogIterator</cite> provides an abstract interface for reading
-serialized logs of SBP data.</p>
-<dl class="docutils">
-<dt>handle</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">filehandle</span><dd>File to read SBP messages from.</dd>
-</dl>
-<dl class="method">
-<dt id="sbp.client.loggers.base_logger.LogIterator.close">
-<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#LogIterator.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.LogIterator.close" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.loggers.base_logger.LogIterator.dispatch">
-<code class="descname">dispatch</code><span class="sig-paren">(</span><em>msg</em>, <em>line=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#LogIterator.dispatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.LogIterator.dispatch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.loggers.base_logger.LogIterator.flush">
-<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#LogIterator.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.LogIterator.flush" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.loggers.base_logger.LogIterator.next">
-<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/loggers/base_logger.html#LogIterator.next"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.loggers.base_logger.LogIterator.next" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the next record tuple from the log file. If an unknown SBP
-message type is found, it&#8217;ll return the raw SBP. If EOF, throws
-exception and then returns to start of file.</p>
-<dl class="docutils">
-<dt>(float, float, object)</dt>
-<dd>(elapsed msec since beginning of log, UTC timestamp, msg)</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="sbp-client-loggers-base-logger-module">
+<h1>sbp.client.loggers.base_logger module<a class="headerlink" href="#sbp-client-loggers-base-logger-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -132,15 +68,15 @@ exception and then returns to start of file.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/sbp.client.loggers.base_logger.txt"
+      <li><a href="_sources/sbp.client.loggers.base_logger.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -154,11 +90,11 @@ exception and then returns to start of file.</p>
       &copy;2015, Swift Navigation.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/sbp.client.loggers.base_logger.txt"
+      <a href="_sources/sbp.client.loggers.base_logger.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

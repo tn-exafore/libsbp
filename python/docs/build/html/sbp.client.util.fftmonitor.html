@@ -1,111 +1,48 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>sbp.client.util.fftmonitor module &mdash; sbp 0.27 documentation</title>
-    
+    <title>sbp.client.util.fftmonitor module &#8212; sbp 0.27 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="sbp 0.27 documentation" href="index.html" />
-    <link rel="up" title="sbp.client.util package" href="sbp.client.util.html" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="sbp.client.util.settingmonitor module" href="sbp.client.util.settingmonitor.html" />
     <link rel="prev" title="sbp.client.util package" href="sbp.client.util.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">  
+  <body>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-sbp.client.util.fftmonitor">
-<span id="sbp-client-util-fftmonitor-module"></span><h1>sbp.client.util.fftmonitor module<a class="headerlink" href="#module-sbp.client.util.fftmonitor" title="Permalink to this headline">¶</a></h1>
-<p>the <a class="reference internal" href="#module-sbp.client.util.fftmonitor" title="sbp.client.util.fftmonitor"><code class="xref py py-mod docutils literal"><span class="pre">sbp.client.util.fftmonitor</span></code></a> module contains functionality to log
-and assemble spectrum analyzer messages into FFT information</p>
-<dl class="class">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor">
-<em class="property">class </em><code class="descclassname">sbp.client.util.fftmonitor.</code><code class="descname">FFTMonitor</code><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<dl class="attribute">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.CHANNELS">
-<code class="descname">CHANNELS</code><em class="property"> = [1, 2, 3, 4]</em><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.CHANNELS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.capture_fft">
-<code class="descname">capture_fft</code><span class="sig-paren">(</span><em>sbp_msg</em>, <em>**metadata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor.capture_fft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.capture_fft" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.clear_ffts">
-<code class="descname">clear_ffts</code><span class="sig-paren">(</span><em>channel=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor.clear_ffts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.clear_ffts" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.disable_channel">
-<code class="descname">disable_channel</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor.disable_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.disable_channel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.enable_channel">
-<code class="descname">enable_channel</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor.enable_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.enable_channel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.get_amplitudes">
-<code class="descname">get_amplitudes</code><span class="sig-paren">(</span><em>sbp_msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor.get_amplitudes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.get_amplitudes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.get_ffts">
-<code class="descname">get_ffts</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor.get_ffts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.get_ffts" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.get_frequencies">
-<code class="descname">get_frequencies</code><span class="sig-paren">(</span><em>sbp_msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor.get_frequencies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.get_frequencies" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sbp.client.util.fftmonitor.FFTMonitor.num_ffts">
-<code class="descname">num_ffts</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#FFTMonitor.num_ffts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.FFTMonitor.num_ffts" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="sbp.client.util.fftmonitor.GPSTimeSecCmp">
-<em class="property">class </em><code class="descclassname">sbp.client.util.fftmonitor.</code><code class="descname">GPSTimeSecCmp</code><span class="sig-paren">(</span><em>payload=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#GPSTimeSecCmp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.GPSTimeSecCmp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="sbp.gnss.html#sbp.gnss.GPSTimeSec" title="sbp.gnss.GPSTimeSec"><code class="xref py py-class docutils literal"><span class="pre">sbp.gnss.GPSTimeSec</span></code></a></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="sbp.client.util.fftmonitor.main">
-<code class="descclassname">sbp.client.util.fftmonitor.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sbp/client/util/fftmonitor.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sbp.client.util.fftmonitor.main" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+  <div class="section" id="sbp-client-util-fftmonitor-module">
+<h1>sbp.client.util.fftmonitor module<a class="headerlink" href="#sbp-client-util-fftmonitor-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -131,15 +68,15 @@ and assemble spectrum analyzer messages into FFT information</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/sbp.client.util.fftmonitor.txt"
+      <li><a href="_sources/sbp.client.util.fftmonitor.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -153,11 +90,11 @@ and assemble spectrum analyzer messages into FFT information</p>
       &copy;2015, Swift Navigation.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/sbp.client.util.fftmonitor.txt"
+      <a href="_sources/sbp.client.util.fftmonitor.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
